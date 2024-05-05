@@ -2,6 +2,18 @@
 ## Casos de Estudio
 Analice, diseñe y codifique los siguientes enunciados en Python
 ### 1. Realice la prueba de escritorio o traza del algoritmo de Euclides utilizando el debugger de VSC.
+#### Resolución:
+```python
+#EJECUTAR EL CODIGO CON EL DEBUGGER DE PYTHON:
+a = int(55) #2366, 55
+b = int(89) #273, 89
+
+while b != 0:
+    r = a % b
+    a = b
+    b = r
+print('mcd:', a)
+```
 ##
 ### 2. En un supermercado se ingresa repetidamente el precio de un producto y el número de unidades a comprar por cliente (un cliente solo puede comprar un tipo de producto). 
 Validar que el precio del producto y el número de
@@ -9,6 +21,50 @@ unidades no debe ser negativo ni cero. A partir de 5 unidades se realiza un desc
 la compra. Los clientes se identifican por un número de orden consecutivo automático. Muestre el importe de
 dinero que debe pagar el cliente. El proceso finaliza al terminar la jornada laboral. Mostrar el número de
 orden del cliente que pagó el máximo importe y el total recaudado por el supermercado.
+
+#### Resolución:
+```python
+recaudacion = 0;
+ejecucion="S";
+orden=0
+logico_max=True
+
+while ejecucion == "S":
+
+    while True:
+        precioProducto=int(input("Ingrese el precio del producto: "));
+        cantidadProducto=int(input("Ingrese la cantidad de producto: "));
+
+        if not precioProducto <=0 and not cantidadProducto<=0:
+            break
+
+    orden+=1
+    precioTotal=precioProducto*cantidadProducto;
+    
+    if cantidadProducto > 5:
+            descuento=(precioTotal)*(10/100);
+            precioTotal-=descuento
+            print(f"El cliente del orden {orden} es de {precioTotal} pesos (se aplicó descuento)");
+    else:
+        print(f"EL cliente del orden {orden} es de {precioTotal} pesos (no se aplicó descuento)");
+        
+
+    recaudacion = recaudacion + precioTotal;
+
+    if logico_max:
+     logico_max = False
+     importe_max = precioTotal
+     pos_importe_max = orden
+    else:
+        if precioTotal > importe_max:
+            importe_max = precioTotal
+            pos_importe_max = orden
+    ejecucion = input('Continuar (s/n):');
+
+print(f'El cliente {pos_importe_max} pagó el máximo importe ${importe_max}')
+print(f'El total recaudado por el supermercado es ${precioTotal}')
+```
+
 ##
 ## Ejercicios
 ### 1. Analizar y ejecutar los siguientes algoritmos en Python, luego realizar la prueba de escritorio: manual y automático utilizando el debugger del VSC.
@@ -72,7 +128,13 @@ print(f"Tabla de multiplicar del {tabla}")
 for i in range(1, 10):
   print(f"{tabla} x {i} = {i*tabla}")
 ```
-----
+#### Resolución:
+```python
+while i < tabla:
+  print(f"{tabla} x {i} = {i*tabla}")
+  i+=1
+```
+Convertir en una versión while
 ```python
 vi = int(input('vi:'))
 vf = int(input('vf:'))
@@ -88,6 +150,12 @@ for ddo in range (vi, vf):
     print('es un número primo!', end='')
 print('\n')
 ```
+#### Resolución:
+```python
+
+```
+
+
 ##
 ### 3. Escribir un algoritmo que calcule y muestre todos los divisores de un número entero.
 ##
